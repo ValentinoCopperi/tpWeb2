@@ -1,6 +1,5 @@
 # Trabajo Práctico Especial - Web 2 
-El repositorio corresponde a un proyecto realizado para la materia de Web 2 de la Tecnicatura en Desarrollo de Aplicaciones Informáticas de la Facultad de Exactas de UNICEN. 
-
+ 
 ## Integrantes:
  - Valentin Bulnes (bulnesvalentin@gmail.com)
  - Valentino Copperi ()
