@@ -1,5 +1,7 @@
 <?php require 'templates/header.phtml' ?>
 
+<h1>Categorías de productos</h1>
+
 <ul>
 <?php foreach($categorias as $categoria): ?>
     <li>
@@ -7,6 +9,12 @@
     </li>
 <?php endforeach ?>
 </ul>
+
+<?php if (isset($categoriaActual)): ?>
+    <h2>Estás viendo la categoría: <?= $categoriaActual ?></h2>
+<?php else : ?>
+    <h1>Productos</h1>
+<?php endif; ?>
 
 <ul>
 <?php foreach($products as $product): ?>

@@ -1,7 +1,7 @@
 <?php
 
 class mainView {
-    public function showProducts($products, $categorias) {
+    public function showProducts($products, $categorias, $categoriaActual = null) {
         require 'templates/productList.phtml';
     }
 
