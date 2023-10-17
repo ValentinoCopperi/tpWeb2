@@ -11,13 +11,13 @@ class productController {
     private $categoriaModel;
     private $mainView;
     private $productView;
-    private $helper;
+    private $authHelper;
 
     public function __construct() {
 
-        $this->helper = new authHelper();
+        $this->authHelper = new authHelper();
 
-        $this->helper->checkLogin();
+        $this->authHelper->checkLogin();
 
 
         $this->productModel = new productModel();

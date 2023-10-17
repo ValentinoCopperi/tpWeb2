@@ -9,14 +9,13 @@ class adminController {
     private $productModel;
     private $categoriaModel;
     private $adminView;
-
-    private $helper;
+    private $authHelper;
 
     public function __construct() {
 
-        $this->helper = new authHelper();
+        $this->authHelper = new authHelper();
 
-        $this->helper->checkLogin();
+        $this->authHelper->checkLogin();
 
         $this->productModel = new productModel();
         $this->categoriaModel = new categoriaModel();
@@ -86,23 +85,16 @@ class adminController {
     }
     
     public function deleteCategoria($id_categoria) {
-        // Obtén todos los productos asociados con la categoría
         $productos = $this->productModel->getProductsByCategoria($id_categoria);
     
-        // Verifica si la categoría tiene productos
         if (count($productos) > 0) {
-            // Si la categoría tiene productos, muestra un mensaje de error
             $this->adminView->showError("No se puede eliminar una categoría que tiene productos asociados");
         } else {
-            // Si la categoría no tiene productos, puedes eliminarla
             $this->categoriaModel->deleteCategoria($id_categoria);
             header('Location: ' . BASE_URL . 'admin');
         }
     }
     
-    
-    
-
     public function editCategoria($nombre) {
         $categoria = $this->categoriaModel->getCategoriaByName($nombre);
     
