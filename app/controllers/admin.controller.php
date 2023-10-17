@@ -85,14 +85,8 @@ class adminController {
     }
     
     public function deleteCategoria($id_categoria) {
-        $productos = $this->productModel->getProductsByCategoria($id_categoria);
-    
-        if (count($productos) > 0) {
-            $this->adminView->showError("No se puede eliminar una categoría que tiene productos asociados");
-        } else {
             $this->categoriaModel->deleteCategoria($id_categoria);
             header('Location: ' . BASE_URL . 'admin');
-        }
     }
     
     public function editCategoria($nombre) {

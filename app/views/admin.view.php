@@ -12,7 +12,7 @@ class adminView {
     public function showEditCategoria($categoria) {
         require './templates/edit.categoria.phtml';
     }
-
+    
     public function showError($error) {
         require 'templates/error.phtml';
     }
