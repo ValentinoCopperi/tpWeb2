@@ -1,0 +1,12 @@
+<?php require 'templates/header.phtml' ?>
+
+<h1>Editar categoria</h1>
+
+<form action="actualizarcategoria/<?= $categoria->id_categoria ?>" method="POST">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" value="<?= $categoria->nombre ?>">
+
+  <button type="submit" class="btn btn-primary mt-2">Actualizar</button>
+</form>
+
+<?php require 'templates/footer.phtml' ?>

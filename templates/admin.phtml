@@ -1,0 +1,68 @@
+<?php require 'templates/header.phtml' ?>
+
+<div class="content-main" style="margin-bottom: 100px;">
+
+<h1>Administrar productos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Categoría</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($products as $product): ?>
+    <tr>
+      <td><?= $product->nombre ?></td>
+      <td><?= $product->precio ?></td>
+      <td><?= $product->categoria ?></td>
+      <td><a href="<?= BASE_URL ?>editarproducto/<?= urlencode($product->nombre) ?>">Editar</a></td>
+      <td><a href="<?= BASE_URL ?>eliminarproducto/<?= $product->id_producto ?>">Eliminar</a></td>
+    </tr>
+    <?php endforeach ?>
+  </tbody>
+</table>
+
+
+<h3>Agregar producto</h3>
+
+<form action="agregarproducto" method="POST">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre">
+  <label for="precio">Precio:</label>
+  <input type="number" id="precio" name="precio">
+  <label for="categoria">Categoría:</label>
+  <select id="categoria" name="categoria">
+    <?php foreach($categorias as $categoria): ?>
+      <option value="<?= $categoria->id_categoria ?>"><?= $categoria->nombre ?></option>
+    <?php endforeach; ?>
+  </select>
+  <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+</form>
+
+<h1>Administrar categorias</h1>
+
+<ul>
+<?php foreach($categorias as $categoria): ?>
+    <li>
+       <?= $categoria->nombre ?> 
+       <a href="<?= BASE_URL ?>editarcategoria/<?= urlencode($categoria->nombre) ?>"> Editar </a>
+       <a href="<?= BASE_URL ?>eliminarcategoria/<?= $categoria->id_categoria ?>"> Eliminar </a>
+    </li>
+<?php endforeach ?>
+</ul>
+
+<h3>Agregar categoria</h3>
+
+<form action="agregarcategoria" method="POST">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre">
+  <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+</form>
+
+</div>
+
+<?php require 'templates/footer.phtml' ?>

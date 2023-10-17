@@ -1,0 +1,22 @@
+<?php require 'templates/header.phtml' ?>
+
+<h1>Editar producto</h1>
+
+<form action="actualizarproducto/<?= $product->id_producto ?>" method="POST">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" value="<?= $product->nombre ?>">
+  <label for="precio">Precio:</label>
+  <input type="number" id="precio" name="precio" value="<?= $product->precio ?>">
+  <label for="categoria">Categoría:</label>
+  <select id="categoria" name="categoria">
+    <?php foreach($categorias as $categoria): ?>
+        <option value="<?= $categoria->id_categoria ?>" <?= $categoria->id_categoria == $product->id_categoria ? 'selected' : '' ?>>
+            <?= $categoria->nombre ?>
+        </option>
+    <?php endforeach; ?>
+</select>
+
+  <button type="submit" class="btn btn-primary mt-2">Actualizar</button>
+</form>
+
+<?php require 'templates/footer.phtml' ?>

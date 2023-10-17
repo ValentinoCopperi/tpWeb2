@@ -1,0 +1,19 @@
+<?php require 'templates/header.phtml' ?>
+
+<ul>
+<?php foreach($categorias as $categoria): ?>
+    <li>
+        <a href="<?= BASE_URL ?>categoria/<?= urlencode($categoria->nombre) ?>"><?= $categoria->nombre ?></a>
+    </li>
+<?php endforeach ?>
+</ul>
+
+<ul>
+<?php foreach($products as $product): ?>
+    <li>
+        <a href="<?= BASE_URL ?>producto/<?= urlencode($product->nombre) ?>"><?= $product->nombre ?></a>
+    </li>
+<?php endforeach ?>
+</ul>
+
+<?php require 'templates/footer.phtml' ?>
